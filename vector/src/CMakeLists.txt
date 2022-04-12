@@ -3,10 +3,10 @@ set(vector_src
         Point3D.cpp
 )
 
-add_library(camel_vector SHARED ${vector_src})
-SET_TARGET_PROPERTIES(camel_vector PROPERTIES OUTPUT_NAME "camel_vector")
+add_library(camel-euclid-vector SHARED ${vector_src})
+SET_TARGET_PROPERTIES(camel-euclid-vector PROPERTIES OUTPUT_NAME "camel-euclid-vector")
 
-install(TARGETS camel_vector
+install(TARGETS camel-euclid-vector
         EXPORT camel-euclid-targets
         INCLUDES DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}"
         ${INSTALL_TARGETS_DEFAULT_ARGS}
