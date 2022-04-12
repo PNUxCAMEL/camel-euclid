@@ -1,0 +1,13 @@
+CMAKE_MINIMUM_REQUIRED(VERSION 3.0.2)
+PROJECT(camel-euclid)
+
+set(INSTALL_TARGETS_DEFAULT_ARGS
+        RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}"
+        LIBRARY DESTINATION "${CMAKE_INSTALL_LIBDIR}"
+        ARCHIVE DESTINATION "${CMAKE_INSTALL_LIBDIR}"
+)
+
+add_subdirectory(vector/src)
+
+file(GLOB vector_hdrs ${PROJECT_SOURCE_DIR}/vector/include/*.h ${PROJECT_SOURCE_DIR}/vector/include/*.hxx)
+install(FILES ${vector_hdrs} DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}/camel-euclid")
