@@ -2,7 +2,8 @@
 // Created by wj on 22. 4. 8..
 //
 
-#include <camel-euclid/Point2D.h>
+#include "../include/Point2D.h"
+//#include <camel-euclid/Point2D.h>
 
 namespace camelmath
 {

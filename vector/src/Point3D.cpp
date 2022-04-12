@@ -2,7 +2,7 @@
 // Created by wj on 22. 4. 8..
 //
 
-#include <camel-euclid/Point3D.h>
+#include "../include/Point3D.h"
 //#include <camel-euclid/vector/Point3D.h>
 
 namespace camelmath
@@ -36,11 +36,6 @@ namespace camelmath
         return mZ;
     }
 
-    Point2D Point3D::GetEndNodeXZ() const
-    {
-        return mEndNodeXZ;
-    }
-
     void Point3D::SetX(float const x)
     {
         mX = x;
@@ -61,16 +56,5 @@ namespace camelmath
         mX = x;
         mY = y;
         mZ = z;
-    }
-
-    void Point3D::SetEndNodeXZ(const Point2D endNodeXZ)
-    {
-        mEndNodeXZ = endNodeXZ;
-    }
-
-    void Point3D::SetEndNodeXZ(const float x, const float z)
-    {
-        mEndNodeXZ.SetX(x);
-        mEndNodeXZ.SetZ(z);
     }
 }
