@@ -5,7 +5,7 @@
 #include "../include/Point3D.h"
 //#include <camel-euclid/vector/Point3D.h>
 
-namespace camelmath
+namespace CamelVector
 {
     Point3D::Point3D()
         : mX(0.0f)

@@ -5,7 +5,7 @@
 #ifndef HEIGHTMAP_POINT3D_H
 #define HEIGHTMAP_POINT3D_H
 
-namespace camelmath
+namespace CamelVector
 {
     class Point3D
     {

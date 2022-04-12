@@ -5,17 +5,17 @@
 #include "../include/Point2D.h"
 //#include <camel-euclid/Point2D.h>
 
-namespace camelmath
+namespace CamelVector
 {
     Point2D::Point2D()
         : mX(0)
-        , mZ(0)
+        , mY(0)
     {
     }
 
-    Point2D::Point2D(float x, float z)
+    Point2D::Point2D(float x, float y)
         : mX(x)
-        , mZ(z)
+        , mY(y)
     {
     }
 
@@ -24,9 +24,9 @@ namespace camelmath
         return mX;
     }
 
-    float Point2D::GetZ() const
+    float Point2D::GetY() const
     {
-        return mZ;
+        return mY;
     }
 
     void Point2D::SetX(const float x)
@@ -34,9 +34,9 @@ namespace camelmath
         mX = x;
     }
 
-    void Point2D::SetZ(const float z)
+    void Point2D::SetY(const float y)
     {
-        mZ = z;
+        mY = y;
     }
 
 }

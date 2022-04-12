@@ -20,6 +20,6 @@ set(INSTALL_TARGETS_DEFAULT_ARGS
 add_subdirectory(vector/src)
 
 file(GLOB vector_hdrs ${PROJECT_SOURCE_DIR}/vector/include/*.h ${PROJECT_SOURCE_DIR}/vector/include/*.hxx)
-install(FILES ${vector_hdrs} DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}/usr/local/include/camel-euclid")
+install(FILES ${vector_hdrs} DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}/usr/local/include/camel-euclid/vector")
 
 export(PACKAGE camel-euclid)
