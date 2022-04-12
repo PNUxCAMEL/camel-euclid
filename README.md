@@ -2,7 +2,7 @@
 
 getting started -euclid
 
-##how to install
+## how to install
   
 ```console
 git clone https://github.com/PNUxCAMEL/camel-euclid.git
@@ -14,7 +14,7 @@ make
 sudo make install
 ```
 
-##how to include your code
+## how to include your code
 
 ```cpp
 //main.cpp
