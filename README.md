@@ -16,10 +16,25 @@ sudo make install
 
 ## how to include your code
 
+```cmake
+// CMakeLists.txt
+cmake_minimum_required(<VERSION>)
+project(<PROJECT_NAME>)
+
+set(CMAKE_CXX_STANDARD 14)
+
+find_package(camel-euclid REQUIRED)
+
+add_executable(<PROJECT_NAME> main.cpp)
+
+target_link_libraries(<PROJECT_NAME> camel-euclid)
+```
+
 ```cpp
 //main.cpp
 #include <iostream>
-#include <camel-euclid/<DIRECTORY>/<HEADER_FILE>>   // ex. #include <camel-euclid/vector/Point3D.h>
+#include <camel-euclid/<DIRECTORY>/<HEADER_FILE>>   
+// ex. #include <camel-euclid/vector/Point3D.h>
 
 ...
 
