@@ -7,11 +7,11 @@
 
 namespace CamelVector
 {
-    class Point2D
+    class Vector2D
     {
     public:
-        Point2D();
-        Point2D(float x, float y);
+        Vector2D();
+        Vector2D(float x, float y);
 
         float GetX() const;
         float GetY() const;

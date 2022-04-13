@@ -1,6 +1,6 @@
 set(vector_src
-        Point2D.cpp
-        Point3D.cpp
+        Vector2D.cpp
+        Vector3D.cpp
 )
 
 add_library(camel-euclid-vector SHARED ${vector_src})

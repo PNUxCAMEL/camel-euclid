@@ -7,11 +7,11 @@
 
 namespace CamelVector
 {
-    class Point3D
+    class Vector3D
     {
     public:
-        Point3D();
-        Point3D(float x, float y, float z);
+        Vector3D();
+        Vector3D(float x, float y, float z);
 
         float GetX() const;
         float GetY() const;
