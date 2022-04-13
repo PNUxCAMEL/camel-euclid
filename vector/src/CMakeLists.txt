@@ -1,7 +1,7 @@
 set(vector_src
         Vector2D.cpp
         Vector3D.cpp
-)
+        )
 
 add_library(camel-euclid-vector SHARED ${vector_src})
 SET_TARGET_PROPERTIES(camel-euclid-vector PROPERTIES OUTPUT_NAME "camel-euclid-vector")

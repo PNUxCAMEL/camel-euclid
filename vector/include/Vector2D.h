@@ -2,8 +2,8 @@
 // Created by wj on 22. 4. 8..
 //
 
-#ifndef HEIGHTMAP_POINT2D_H
-#define HEIGHTMAP_POINT2D_H
+#ifndef CAMEL_EUCLID_VECTOR2D_H
+#define CAMEL_EUCLID_VECTOR2D_H
 
 namespace CamelVector
 {
@@ -24,4 +24,4 @@ namespace CamelVector
     };
 }
 
-#endif //HEIGHTMAP_POINT2D_H
+#endif //CAMEL_EUCLID_VECTOR2D_H
