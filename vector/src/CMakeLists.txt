@@ -1,18 +1,19 @@
 set(vector_src
-        Vector2D.cpp
-        Vector3D.cpp
+    Vector2D.cpp
+    Vector3D.cpp
 )
 
 ADD_LIBRARY(vector SHARED ${vector_src})
 
 ADD_LIBRARY(vector-static STATIC ${vector_src})
+SET_TARGET_PROPERTIES(vector-static PROPERTIES OUTPUT_NAME "vector")
 
 if(NOT EXISTS "${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/cmake/vector")
     file(MAKE_DIRECTORY "${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/cmake/vector")
 endif()
 
 export(TARGETS vector vector-static
-        APPEND FILE "${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/cmake/vector/vector-targets.cmake")
+    APPEND FILE "${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/cmake/vector/vector-targets.cmake")
 
 ADD_EXECUTABLE(Vector2D Vector2D.cpp)
 TARGET_LINK_LIBRARIES(Vector2D vector)
@@ -21,17 +22,17 @@ ADD_EXECUTABLE(Vector3D Vector3D.cpp)
 TARGET_LINK_LIBRARIES(Vector3D vector)
 
 install(TARGETS vector vector-static
-        EXPORT vector-targets
-        INCLUDES DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}"
-        ${INSTALL_TARGETS_DEFAULT_ARGS}
+    EXPORT vector-targets
+    INCLUDES DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}"
+    ${INSTALL_TARGETS_DEFAULT_ARGS}
 )
 
 install(EXPORT vector-targets DESTINATION "${CMAKE_INSTALL_DATADIR}/vector")
 
 install(TARGETS
-        Vector2D
-        Vector3D
-        ${INSTALL_TARGETS_DEFAULT_ARGS}
+    Vector2D
+    Vector3D
+    ${INSTALL_TARGETS_DEFAULT_ARGS}
 )
 
 
