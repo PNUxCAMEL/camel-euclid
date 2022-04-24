@@ -4,7 +4,7 @@ getting started -euclid
 
 ## how to install
   
-```console
+```bash
 git clone https://github.com/PNUxCAMEL/camel-euclid.git
 cd camel-euclid
 mkdir build
@@ -17,8 +17,8 @@ sudo make install
 ## how to include your code
 
 ```cmake
-// CMakeLists.txt
-cmake_minimum_required(<VERSION>)
+// CMakeLists.txt in your project file
+cmake_minimum_required(<VERSION>)   # over 3.1.0 version
 project(<PROJECT_NAME>)
 
 set(CMAKE_CXX_STANDARD 14)
@@ -27,14 +27,13 @@ find_package(camel-euclid REQUIRED)
 
 add_executable(<PROJECT_NAME> main.cpp)
 
-target_link_libraries(<PROJECT_NAME> camel-euclid)
+target_link_libraries(<PROJECT_NAME> camel-euclid-vector)
 ```
 
 ```cpp
 //main.cpp
 #include <iostream>
-#include <camel-euclid/<DIRECTORY>/<HEADER_FILE>>   
-// ex. #include <camel-euclid/vector/Point3D.h>
+#include <camel-euclid/Vector.h>   
 
 ...
 
