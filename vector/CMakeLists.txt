@@ -1,137 +1,32 @@
-CMAKE_MINIMUM_REQUIRED(VERSION 3.1.0)
-PROJECT(vector)
+cmake_minimum_required(VERSION 3.1.0)
 
-SET( BASE_DIR ${CMAKE_SOURCE_DIR} )
-SET( CMAKE_LIBRARY_OUTPUT_DIRECTORY ${BASE_DIR}/lib )
-SET( CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${BASE_DIR}/lib )
-SET( CMAKE_RUNTIME_OUTPUT_DIRECTORY ${BASE_DIR}/bin )
+project(vector)
 
-set(INCLUDE_DIRS "${PROJECT_SOURCE_DIR}/include")
-INCLUDE_DIRECTORIES(${INCLUDE_DIRS})
+set(vector_src
+        src/Vector2D.cpp
+        src/Vector3D.cpp
+        )
 
-LINK_DIRECTORIES(${CMAKE_LIBRARY_OUTPUT_DIRECTORY})
+set(vector_hdr
+        include/Vector.h
+        include/Vector2D.h
+        include/Vector3D.h
+        )
 
-set(INSTALL_TARGETS_DEFAULT_ARGS
-        RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}"
-        LIBRARY DESTINATION "${CMAKE_INSTALL_LIBDIR}"
-        ARCHIVE DESTINATION "${CMAKE_INSTALL_LIBDIR}"
-)
+add_library(camel-euclid-vector SHARED ${vector_src})
 
-ADD_SUBDIRECTORY(src)
+install(FILES ${vector_hdr} DESTINATION include/camel-euclid/)
 
-export(PACKAGE vector)
 
-#-----------------------------------------------------------
+install(TARGETS camel-euclid-vector
+        EXPORT camel-euclid-vector-export
+        LIBRARY DESTINATION lib
+        INCLUDES DESTINATION include
+        )
 
-file(GLOB octomap_HDRS ${PROJECT_SOURCE_DIR}/include/octomap/*.h ${PROJECT_SOURCE_DIR}/include/octomap/*.hxx)
-install(FILES ${octomap_HDRS} DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}/octomap")
-file(GLOB octomap_math_HDRS ${PROJECT_SOURCE_DIR}/include/octomap/math/*.h)
-install(FILES ${octomap_math_HDRS} DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}/octomap/math")
+install(EXPORT camel-euclid-vector-export
+        FILE camel-euclid-vector-config.cmake
+        DESTINATION share/camel-euclid-vector/
+        EXPORT_LINK_INTERFACE_LIBRARIES
+        )
 
-# Install package.xml (catkin/ament/rosdep)
-install(FILES package.xml DESTINATION "${CMAKE_INSTALL_DATADIR}/octomap")
-
-# Allows Colcon to find non-Ament packages when using workspace underlays
-file(WRITE ${CMAKE_CURRENT_BINARY_DIR}/share/ament_index/resource_index/packages/${PROJECT_NAME} "")
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/share/ament_index/resource_index/packages/${PROJECT_NAME} DESTINATION share/ament_index/resource_index/packages)
-
-# uninstall target
-configure_file(
-        "${PROJECT_SOURCE_DIR}/CMakeModules/CMakeUninstall.cmake.in"
-        "${CMAKE_CURRENT_BINARY_DIR}/cmake_uninstall.cmake"
-        IMMEDIATE @ONLY)
-
-add_custom_target(uninstall
-        COMMAND ${CMAKE_COMMAND} -P ${CMAKE_CURRENT_BINARY_DIR}/cmake_uninstall.cmake)
-
-# Export the package for use from the build-tree
-# (this registers the build-tree with a global CMake-registry)
-export(PACKAGE octomap)
-
-# Create a octomap-config.cmake file for the use from the build tree
-set(OCTOMAP_INCLUDE_DIRS "${INCLUDE_DIRS}")
-set(OCTOMAP_LIB_DIR "${CMAKE_LIBRARY_OUTPUT_DIRECTORY}")
-# Set library names as absolute paths
-# Windows, spec. MSVC requires the .lib suffix for imported libs
-IF(WIN32)
-    set(OCTOMAP_LIBRARY
-            "${CMAKE_IMPORT_LIBRARY_PREFIX}octomap${CMAKE_IMPORT_LIBRARY_SUFFIX}"
-            )
-    set(OCTOMATH_LIBRARY
-            "${CMAKE_IMPORT_LIBRARY_PREFIX}octomath${CMAKE_IMPORT_LIBRARY_SUFFIX}"
-            )
-ELSE()
-    set(OCTOMAP_LIBRARY
-            "${CMAKE_SHARED_LIBRARY_PREFIX}octomap${CMAKE_SHARED_LIBRARY_SUFFIX}"
-            )
-    set(OCTOMATH_LIBRARY
-            "${CMAKE_SHARED_LIBRARY_PREFIX}octomath${CMAKE_SHARED_LIBRARY_SUFFIX}"
-            )
-ENDIF()
-
-# not used right now (export depends?)
-#set(OCTOMAP_CMAKE_DIR "${PROJECT_BINARY_DIR}")
-include(CMakePackageConfigHelpers)
-
-CONFIGURE_PACKAGE_CONFIG_FILE(
-        octomap-config.cmake.in
-        "${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/cmake/octomap/octomap-config.cmake"
-        PATH_VARS OCTOMAP_INCLUDE_DIRS OCTOMAP_LIB_DIR
-        INSTALL_DESTINATION "${CMAKE_INSTALL_FULL_DATADIR}/octomap")
-
-WRITE_BASIC_PACKAGE_VERSION_FILE(
-        "${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/cmake/octomap/octomap-config-version.cmake"
-        VERSION ${OCTOMAP_VERSION}
-        COMPATIBILITY AnyNewerVersion)
-
-# Create a octomap-config.cmake file for the use from the install tree
-# and install it
-set(OCTOMAP_INCLUDE_DIRS "${CMAKE_INSTALL_FULL_INCLUDEDIR}")
-set(OCTOMAP_LIB_DIR "${CMAKE_INSTALL_FULL_LIBDIR}")
-#set(OCTOMAP_CMAKE_DIR "${INSTALL_DATA_DIR}/FooBar/CMake")
-
-set(OCTOMAP_INCLUDE_TARGETS
-        "include(\${CMAKE_CURRENT_LIST_DIR}/octomap-targets.cmake)")
-
-CONFIGURE_PACKAGE_CONFIG_FILE(
-        octomap-config.cmake.in
-        "${PROJECT_BINARY_DIR}/InstallFiles/octomap-config.cmake"
-        PATH_VARS OCTOMAP_INCLUDE_DIRS OCTOMAP_LIB_DIR
-        INSTALL_DESTINATION "${CMAKE_INSTALL_FULL_DATADIR}/octomap")
-
-WRITE_BASIC_PACKAGE_VERSION_FILE(
-        ${PROJECT_BINARY_DIR}/InstallFiles/octomap-config-version.cmake
-        VERSION ${OCTOMAP_VERSION}
-        COMPATIBILITY AnyNewerVersion)
-
-install(FILES
-        "${PROJECT_BINARY_DIR}/InstallFiles/octomap-config.cmake"
-        "${PROJECT_BINARY_DIR}/InstallFiles/octomap-config-version.cmake"
-        DESTINATION "${CMAKE_INSTALL_DATADIR}/octomap")
-
-# Write pkgconfig-file:
-include(InstallPkgConfigFile)
-install_pkg_config_file(octomap
-        CFLAGS
-        LIBS -loctomap -loctomath
-        REQUIRES
-        VERSION ${OCTOMAP_VERSION})
-
-# Documentation
-FIND_PACKAGE(Doxygen)
-IF(DOXYGEN_FOUND)
-    configure_file(${CMAKE_CURRENT_SOURCE_DIR}/octomap.dox.in ${CMAKE_CURRENT_BINARY_DIR}/octomap.dox @ONLY)
-    ADD_CUSTOM_TARGET(docs ${DOXYGEN_EXECUTABLE} ${CMAKE_CURRENT_BINARY_DIR}/octomap.dox
-            WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}
-            COMMENT "Generating documentation (Doxygen) at location ${PROJECT_SOURCE_DIR}/doc/html/")
-ENDIF(DOXYGEN_FOUND)
-
-# Needs to be last statement:
-INCLUDE(CPackSettings)
-
-# Finished:
-MESSAGE ("\n")
-MESSAGE (STATUS "Compile octomap using: make")
-MESSAGE (STATUS "Install octomap using: make install")
-MESSAGE (STATUS "    (be sure to set the correct CMAKE_INSTALL_PREFIX before)")
-MESSAGE (STATUS "Compile API-documentation using: make docs\n")

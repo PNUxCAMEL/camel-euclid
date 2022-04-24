@@ -1,8 +1,6 @@
 CMAKE_MINIMUM_REQUIRED(VERSION 3.1.0)
 PROJECT(camel-euclid)
 
-# subdirectory
-
 set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 
-ADD_SUBDIRECTORY(vector)
+add_subdirectory(vector)
