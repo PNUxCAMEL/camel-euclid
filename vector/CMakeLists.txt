@@ -5,12 +5,16 @@ project(vector)
 set(vector_src
         src/Vector2D.cpp
         src/Vector3D.cpp
+        src/Point2D.cpp
+        src/Point3D.cpp
 )
 
 set(vector_hdr
         include/Vector.h
         include/Vector2D.h
         include/Vector3D.h
+        include/Point2D.h
+        include/Point3D.h
 )
 
 add_library(camel-euclid-vector SHARED ${vector_src})
