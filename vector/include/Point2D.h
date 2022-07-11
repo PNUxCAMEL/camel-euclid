@@ -5,7 +5,7 @@
 #ifndef POINT2D_H
 #define POINT2D_H
 
-namespace CamelVector
+namespace camelVector
 {
 	class Point2D
 	{

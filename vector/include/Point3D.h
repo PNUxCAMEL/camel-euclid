@@ -5,7 +5,7 @@
 #ifndef POINT3D_H
 #define POINT3D_H
 
-namespace CamelVector
+namespace camelVector
 {
 	class Point3D
 	{

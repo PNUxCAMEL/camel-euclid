@@ -5,7 +5,7 @@
 #ifndef CAMEL_EUCLID_VECTOR2D_H
 #define CAMEL_EUCLID_VECTOR2D_H
 
-namespace CamelVector
+namespace camelVector
 {
     class Vector2D
     {

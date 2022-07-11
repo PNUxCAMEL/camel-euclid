@@ -4,7 +4,7 @@
 
 #include "../include/Vector2D.h"
 
-namespace CamelVector
+namespace camelVector
 {
     Vector2D::Vector2D()
         : mX(0)

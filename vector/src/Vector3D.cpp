@@ -4,7 +4,7 @@
 
 #include "../include/Vector3D.h"
 
-namespace CamelVector
+namespace camelVector
 {
     Vector3D::Vector3D()
         : mX(0.0f)
