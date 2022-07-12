@@ -17,10 +17,18 @@ namespace camelVector
         float GetY() const;
         float GetZ() const;
 
-        void SetX(float const x);
-        void SetY(float const y);
-        void SetZ(float const z);
-        void SetXYZ(float const x, float const y, float const z) ;
+        void SetX(float x);
+        void SetY(float y);
+        void SetZ(float z);
+        void SetXYZ(float x, float y, float z);
+
+        // sorting
+        static bool AscendingByX(Vector3D& firstVector, Vector3D& secondVector);
+        static bool AscendingByY(Vector3D& firstVector, Vector3D& secondVector);
+        static bool AscendingByZ(Vector3D& firstVector, Vector3D& secondVector);
+        static bool DescendingByX(Vector3D& firstVector, Vector3D& secondVector);
+        static bool DescendingByY(Vector3D& firstVector, Vector3D& secondVector);
+        static bool DescendingByZ(Vector3D& firstVector, Vector3D& secondVector);
 
     private:
         float mX, mY, mZ;

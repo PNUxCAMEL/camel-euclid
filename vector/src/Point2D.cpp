@@ -37,5 +37,22 @@ namespace camelVector
 	{
 		mZ = z;
 	}
+    bool Point2D::AscendingByX(Point2D& firstPoint, Point2D& secondPoint)
+    {
+        return firstPoint.GetX() < secondPoint.GetX();
+    }
 
+    bool Point2D::AscendingByZ(Point2D& firstPoint, Point2D& secondPoint)
+    {
+        return firstPoint.GetZ() < secondPoint.GetZ();
+    }
+    bool Point2D::DescendingByX(Point2D& firstPoint, Point2D& secondPoint)
+    {
+        return firstPoint.GetX() > secondPoint.GetX();
+    }
+
+    bool Point2D::DescendingByZ(Point2D& firstPoint, Point2D& secondPoint)
+    {
+        return firstPoint.GetZ() > secondPoint.GetZ();
+    }
 }

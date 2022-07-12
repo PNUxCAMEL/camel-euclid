@@ -38,4 +38,23 @@ namespace camelVector
         mY = y;
     }
 
+    bool Vector2D::AscendingByX(Vector2D& firstVector, Vector2D& secondVector)
+    {
+        return firstVector.GetX() < secondVector.GetX();
+    }
+
+    bool Vector2D::AscendingByY(Vector2D& firstVector, Vector2D& secondVector)
+    {
+        return firstVector.GetY() < secondVector.GetY();
+    }
+    bool Vector2D::DescendingByX(Vector2D& firstVector, Vector2D& secondVector)
+    {
+        return firstVector.GetX() > secondVector.GetX();
+    }
+
+    bool Vector2D::DescendingByY(Vector2D& firstVector, Vector2D& secondVector)
+    {
+        return firstVector.GetY() > secondVector.GetY();
+    }
+
 }

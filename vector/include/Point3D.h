@@ -22,6 +22,14 @@ namespace camelVector
 		void SetZ(float const z);
 		void SetXYZ(float const x, float const y, float const z) ;
 
+        // sorting
+        static bool AscendingByX(Point3D& firstPoint, Point3D& secondPoint);
+        static bool AscendingByY(Point3D& firstPoint, Point3D& secondPoint);
+        static bool AscendingByZ(Point3D& firstPoint, Point3D& secondPoint);
+        static bool DescendingByX(Point3D& firstPoint, Point3D& secondPoint);
+        static bool DescendingByY(Point3D& firstPoint, Point3D& secondPoint);
+        static bool DescendingByZ(Point3D& firstPoint, Point3D& secondPoint);
+
 	private:
 		float mX, mY, mZ;
 	};
