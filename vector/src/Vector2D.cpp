@@ -47,6 +47,7 @@ namespace camelVector
     {
         return firstVector.GetY() < secondVector.GetY();
     }
+
     bool Vector2D::DescendingByX(Vector2D& firstVector, Vector2D& secondVector)
     {
         return firstVector.GetX() > secondVector.GetX();
