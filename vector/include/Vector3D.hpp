@@ -2,8 +2,10 @@
 // Created by wj on 22. 4. 8..
 //
 
-#ifndef CAMEL_EUCLID_VECTOR3D_H
-#define CAMEL_EUCLID_VECTOR3D_H
+#ifndef CAMEL_EUCLID_VECTOR3D_HPP
+#define CAMEL_EUCLID_VECTOR3D_HPP
+
+#include <cmath>
 
 namespace camelVector
 {
@@ -30,8 +32,12 @@ namespace camelVector
         static bool DescendingByY(Vector3D& firstVector, Vector3D& secondVector);
         static bool DescendingByZ(Vector3D& firstVector, Vector3D& secondVector);
 
+		bool bIsEqual(const Vector3D& other) const;
+
+		float DistanceBetweenOther(const Vector3D& other) const;
+
     private:
         float mX, mY, mZ;
     };
 }
-#endif //CAMEL_EUCLID_VECTOR3D_H
+#endif //CAMEL_EUCLID_VECTOR3D_HPP

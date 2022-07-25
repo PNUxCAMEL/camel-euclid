@@ -2,7 +2,7 @@
 // Created by wj on 22. 4. 30.
 //
 
-#include "../include/Point3D.h"
+#include "../include/Point3D.hpp"
 
 namespace camelVector
 {
@@ -35,22 +35,22 @@ namespace camelVector
 		return mZ;
 	}
 
-	void Point3D::SetX(float const x)
+	void Point3D::SetX(float x)
 	{
 		mX = x;
 	}
 
-	void Point3D::SetY(float const y)
+	void Point3D::SetY(float y)
 	{
 		mY = y;
 	}
 
-	void Point3D::SetZ(float const z)
+	void Point3D::SetZ(float z)
 	{
 		mZ = z;
 	}
 
-	void Point3D::SetXYZ(float const x, float const y, float z)
+	void Point3D::SetXYZ(float x, float y, float z)
 	{
 		mX = x;
 		mY = y;
@@ -86,4 +86,19 @@ namespace camelVector
     {
         return firstPoint.GetZ() > secondPoint.GetZ();
     }
+
+	bool Point3D::bIsEqual(const Point3D& other) const
+	{
+		if (mX == other.GetX() && mY == other.GetY() && mZ == other.GetZ())
+		{
+			return true;
+		}
+		return false;
+	}
+
+	float Point3D::DistanceBetweenOther(const Point3D& other) const
+	{
+		return std::sqrt((GetX() - other.GetX()) * (GetX() - other.GetX()) + (GetY() - other.GetY()) * (GetY() - other.GetY()) + (GetZ() - other.GetZ()) * (GetZ() - other.GetZ()));
+	}
+
 }

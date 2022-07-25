@@ -2,7 +2,7 @@
 // Created by wj on 22. 4. 30.
 //
 
-#include "../include/Point2D.h"
+#include "../include/Point2D.hpp"
 
 namespace camelVector
 {
@@ -28,12 +28,12 @@ namespace camelVector
 		return mZ;
 	}
 
-	void Point2D::SetX(const float x)
+	void Point2D::SetX(float x)
 	{
 		mX = x;
 	}
 
-	void Point2D::SetZ(const float z)
+	void Point2D::SetZ(float z)
 	{
 		mZ = z;
 	}
@@ -55,4 +55,18 @@ namespace camelVector
     {
         return firstPoint.GetZ() > secondPoint.GetZ();
     }
+
+	bool Point2D::bIsEqual(const Point2D& other) const
+	{
+		if (mX == other.GetX() && mZ == other.GetZ())
+		{
+			return true;
+		}
+		return false;
+	}
+
+	float Point2D::DistanceBetweenOther(const Point2D& other) const
+	{
+		return std::sqrt((GetX() - other.GetX()) * (GetX() - other.GetX()) + (GetZ() - other.GetZ()) * (GetZ() - other.GetZ()));
+	}
 }

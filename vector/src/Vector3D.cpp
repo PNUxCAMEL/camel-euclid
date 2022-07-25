@@ -2,7 +2,7 @@
 // Created by wj on 22. 4. 8..
 //
 
-#include "../include/Vector3D.h"
+#include "../include/Vector3D.hpp"
 
 namespace camelVector
 {
@@ -86,4 +86,18 @@ namespace camelVector
     {
         return firstVector.GetZ() > secondVector.GetZ();
     }
+
+	bool Vector3D::bIsEqual(const Vector3D& other) const
+	{
+		if (mX == other.GetX() && mY == other.GetY() && mZ == other.GetZ())
+		{
+			return true;
+		}
+		return false;
+	}
+
+	float Vector3D::DistanceBetweenOther(const Vector3D& other) const
+	{
+		return std::sqrt((GetX() - other.GetX()) * (GetX() - other.GetX()) + (GetY() - other.GetY()) * (GetY() - other.GetY()) + (GetZ() - other.GetZ()) * (GetZ() - other.GetZ()));
+	}
 }

@@ -5,6 +5,8 @@
 #ifndef POINT3D_H
 #define POINT3D_H
 
+#include <cmath>
+
 namespace camelVector
 {
 	class Point3D
@@ -17,10 +19,10 @@ namespace camelVector
 		float GetY() const;
 		float GetZ() const;
 
-		void SetX(float const x);
-		void SetY(float const y);
-		void SetZ(float const z);
-		void SetXYZ(float const x, float const y, float const z) ;
+		void SetX(float x);
+		void SetY(float y);
+		void SetZ(float z);
+		void SetXYZ(float x, float y, float z) ;
 
         // sorting
         static bool AscendingByX(Point3D& firstPoint, Point3D& secondPoint);
@@ -29,6 +31,10 @@ namespace camelVector
         static bool DescendingByX(Point3D& firstPoint, Point3D& secondPoint);
         static bool DescendingByY(Point3D& firstPoint, Point3D& secondPoint);
         static bool DescendingByZ(Point3D& firstPoint, Point3D& secondPoint);
+
+		bool bIsEqual(const Point3D& other) const;
+
+		float DistanceBetweenOther(const Point3D& other) const;
 
 	private:
 		float mX, mY, mZ;

@@ -5,9 +5,9 @@
 #ifndef CAMEL_EUCLID_VECTOR_H
 #define CAMEL_EUCLID_VECTOR_H
 
-#include "Vector2D.h"
-#include "Vector3D.h"
-#include "Point2D.h"
-#include "Point3D.h"
+#include "Vector2D.hpp"
+#include "Vector3D.hpp"
+#include "Point2D.hpp"
+#include "Point3D.hpp"
 
 #endif //CAMEL_EUCLID_VECTOR_H

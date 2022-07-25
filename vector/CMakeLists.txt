@@ -11,10 +11,10 @@ set(vector_src
 
 set(vector_hdr
         include/Vector.h
-        include/Vector2D.h
-        include/Vector3D.h
-        include/Point2D.h
-        include/Point3D.h
+        include/Vector2D.hpp
+        include/Vector3D.hpp
+        include/Point2D.hpp
+        include/Point3D.hpp
 )
 
 add_library(camel-euclid-vector SHARED ${vector_src})

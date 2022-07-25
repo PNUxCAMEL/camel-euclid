@@ -5,6 +5,8 @@
 #ifndef CAMEL_EUCLID_VECTOR2D_H
 #define CAMEL_EUCLID_VECTOR2D_H
 
+#include <cmath>
+
 namespace camelVector
 {
     class Vector2D
@@ -24,6 +26,10 @@ namespace camelVector
         static bool AscendingByY(Vector2D& firstVector, Vector2D& secondVector);
         static bool DescendingByX(Vector2D& firstVector, Vector2D& secondVector);
         static bool DescendingByY(Vector2D& firstVector, Vector2D& secondVector);
+
+		bool bIsEqual(const Vector2D& other) const;
+
+		float DistanceBetweenOther(const Vector2D& other) const;
 
     private:
         float mX, mY;
