@@ -60,7 +60,7 @@ namespace camelVector
 
 	bool Vector2D::bIsEqual(const Vector2D& other) const
 	{
-		if (GetX() == other.GetX() && GetY() == other.GetY())
+		if (mX == other.GetX() && mY == other.GetY())
 		{
 			return true;
 		}
@@ -69,6 +69,6 @@ namespace camelVector
 
 	float Vector2D::DistanceBetweenOther(const Vector2D& other) const
 	{
-		return std::sqrt((GetX() - other.GetX()) * (GetX() - other.GetX()) + (GetZ() - other.GetZ()) * (GetZ() - other.GetZ()));
+		return std::sqrt((mX - other.GetX()) * (mX - other.GetX()) + (mY - other.GetY()) * (mY - other.GetY()));
 	}
 }

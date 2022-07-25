@@ -67,6 +67,6 @@ namespace camelVector
 
 	float Point2D::DistanceBetweenOther(const Point2D& other) const
 	{
-		return std::sqrt((GetX() - other.GetX()) * (GetX() - other.GetX()) + (GetZ() - other.GetZ()) * (GetZ() - other.GetZ()));
+		return std::sqrt((mX - other.GetX()) * (mX - other.GetX()) + (mZ - other.GetZ()) * (mZ - other.GetZ()));
 	}
 }

@@ -10,7 +10,7 @@ set(vector_src
 )
 
 set(vector_hdr
-        include/Vector.h
+        include/Vector.hpp
         include/Vector2D.hpp
         include/Vector3D.hpp
         include/Point2D.hpp

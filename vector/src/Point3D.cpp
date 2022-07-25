@@ -98,7 +98,7 @@ namespace camelVector
 
 	float Point3D::DistanceBetweenOther(const Point3D& other) const
 	{
-		return std::sqrt((GetX() - other.GetX()) * (GetX() - other.GetX()) + (GetY() - other.GetY()) * (GetY() - other.GetY()) + (GetZ() - other.GetZ()) * (GetZ() - other.GetZ()));
+		return std::sqrt((mX - other.GetX()) * (mX - other.GetX()) + (mY - other.GetY()) * (mY - other.GetY()) + (mZ - other.GetZ()) * (mZ - other.GetZ()));
 	}
 
 }
