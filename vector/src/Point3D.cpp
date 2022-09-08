@@ -59,32 +59,122 @@ namespace camelVector
 
     bool Point3D::AscendingByX(Point3D& firstPoint, Point3D& secondPoint)
     {
-        return firstPoint.GetX() < secondPoint.GetX();
+//        return firstPoint.GetX() < secondPoint.GetX();
+        if (firstPoint.GetX() == secondPoint.GetX())
+        {
+            if (firstPoint.GetY() == secondPoint.GetY())
+            {
+                return firstPoint.GetZ() < secondPoint.GetZ();
+            }
+            else
+            {
+                return firstPoint.GetY() < secondPoint.GetY();
+            }
+        }
+        else
+        {
+            return firstPoint.GetX() < secondPoint.GetY();
+        }
     }
 
     bool Point3D::AscendingByY(Point3D& firstPoint, Point3D& secondPoint)
     {
-        return firstPoint.GetY() < secondPoint.GetY();
+//        return firstPoint.GetY() < secondPoint.GetY();
+        if (firstPoint.GetY() == secondPoint.GetY())
+        {
+            if (firstPoint.GetZ() == secondPoint.GetZ())
+            {
+                return firstPoint.GetX() < secondPoint.GetX();
+            }
+            else
+            {
+                return firstPoint.GetZ() < secondPoint.GetZ();
+            }
+        }
+        else
+        {
+            return firstPoint.GetY() < secondPoint.GetY();
+        }
     }
 
     bool Point3D::AscendingByZ(Point3D& firstPoint, Point3D& secondPoint)
     {
-        return firstPoint.GetZ() < secondPoint.GetZ();
+//        return firstPoint.GetZ() < secondPoint.GetZ();
+        if (firstPoint.GetZ() == secondPoint.GetZ())
+        {
+            if (firstPoint.GetX() == secondPoint.GetX())
+            {
+                return firstPoint.GetY() < secondPoint.GetY();
+            }
+            else
+            {
+                return firstPoint.GetX() < secondPoint.GetX();
+            }
+        }
+        else
+        {
+            return firstPoint.GetZ() < secondPoint.GetZ();
+        }
     }
 
     bool Point3D::DescendingByX(Point3D& firstPoint, Point3D& secondPoint)
     {
-        return firstPoint.GetX() > secondPoint.GetX();
+//        return firstPoint.GetX() > secondPoint.GetX();
+        if (firstPoint.GetX() == secondPoint.GetX())
+        {
+            if (firstPoint.GetY() == secondPoint.GetY())
+            {
+                return firstPoint.GetZ() > secondPoint.GetZ();
+            }
+            else
+            {
+                return firstPoint.GetY() > secondPoint.GetY();
+            }
+        }
+        else
+        {
+            return firstPoint.GetX() > secondPoint.GetX();
+        }
     }
 
     bool Point3D::DescendingByY(Point3D& firstPoint, Point3D& secondPoint)
     {
-        return firstPoint.GetY() > secondPoint.GetY();
+//        return firstPoint.GetY() > secondPoint.GetY();
+        if (firstPoint.GetY() == secondPoint.GetY())
+        {
+            if (firstPoint.GetZ() == secondPoint.GetZ())
+            {
+                return firstPoint.GetX() > secondPoint.GetX();
+            }
+            else
+            {
+                return firstPoint.GetZ() > secondPoint.GetZ();
+            }
+        }
+        else
+        {
+            return firstPoint.GetY() > secondPoint.GetY();
+        }
     }
 
     bool Point3D::DescendingByZ(Point3D& firstPoint, Point3D& secondPoint)
     {
-        return firstPoint.GetZ() > secondPoint.GetZ();
+//        return firstPoint.GetZ() > secondPoint.GetZ();
+        if (firstPoint.GetZ() == secondPoint.GetZ())
+        {
+            if (firstPoint.GetX() == secondPoint.GetX())
+            {
+                return firstPoint.GetY() > secondPoint.GetY();
+            }
+            else
+            {
+                return firstPoint.GetX() > secondPoint.GetX();
+            }
+        }
+        else
+        {
+            return firstPoint.GetZ() > secondPoint.GetZ();
+        }
     }
 
 	bool Point3D::bIsEqual(const Point3D& other) const
@@ -100,5 +190,10 @@ namespace camelVector
 	{
 		return std::sqrt((mX - other.GetX()) * (mX - other.GetX()) + (mY - other.GetY()) * (mY - other.GetY()) + (mZ - other.GetZ()) * (mZ - other.GetZ()));
 	}
+
+    float Point3D::DistanceBetweenOtherXZ(const Point3D& other) const
+    {
+        return std::sqrt((mX - other.GetX()) * (mX - other.GetX()) + (mZ - other.GetZ()) * (mZ - other.GetZ()));
+    }
 
 }

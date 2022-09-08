@@ -35,9 +35,13 @@ namespace camelVector
 		bool bIsEqual(const Point3D& other) const;
 
 		float DistanceBetweenOther(const Point3D& other) const;
+        float DistanceBetweenOtherXZ(const Point3D& other) const;
 
-	private:
-		float mX, mY, mZ;
+
+    private:
+		float mX;
+        float mY;
+        float mZ;
 	};
 }
 
