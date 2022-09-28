@@ -9,17 +9,17 @@
 
 namespace camelVector
 {
-	class Point2D
-	{
-	public:
-		Point2D();
-		Point2D(float x, float z);
+    class Point2D
+    {
+    public:
+        Point2D();
+        Point2D(float x, float z);
 
-		float GetX() const;
-		float GetZ() const;
+        float GetX() const;
+        float GetZ() const;
 
-		void SetX(float x);
-		void SetZ(float z);
+        void SetX(float x);
+        void SetZ(float z);
 
         // sorting
         static bool AscendingByX(Point2D& firstPoint, Point2D& secondPoint);
@@ -27,14 +27,14 @@ namespace camelVector
         static bool DescendingByX(Point2D& firstPoint, Point2D& secondPoint);
         static bool DescendingByZ(Point2D& firstPoint, Point2D& secondPoint);
 
-		bool bIsEqual(const Point2D& other) const;
+        bool bIsEqual(const Point2D& other) const;
 
-		float DistanceBetweenOther(const Point2D& other) const;
+        float DistanceBetweenOther(const Point2D& other) const;
 
-	private:
-		float mX;
+    private:
+        float mX;
         float mZ;
-	};
+    };
 }
 
 #endif //POINT2D_H

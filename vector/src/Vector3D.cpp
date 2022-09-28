@@ -87,17 +87,17 @@ namespace camelVector
         return firstVector.GetZ() > secondVector.GetZ();
     }
 
-	bool Vector3D::bIsEqual(const Vector3D& other) const
-	{
-		if (mX == other.GetX() && mY == other.GetY() && mZ == other.GetZ())
-		{
-			return true;
-		}
-		return false;
-	}
+    bool Vector3D::bIsEqual(const Vector3D& other) const
+    {
+        if (mX == other.GetX() && mY == other.GetY() && mZ == other.GetZ())
+        {
+            return true;
+        }
+        return false;
+    }
 
-	float Vector3D::DistanceBetweenOther(const Vector3D& other) const
-	{
-		return std::sqrt((mX - other.GetX()) * (mX - other.GetX()) + (mY - other.GetY()) * (mY - other.GetY()) + (mZ - other.GetZ()) * (mZ - other.GetZ()));
-	}
+    float Vector3D::DistanceBetweenOther(const Vector3D& other) const
+    {
+        return std::sqrt((mX - other.GetX()) * (mX - other.GetX()) + (mY - other.GetY()) * (mY - other.GetY()) + (mZ - other.GetZ()) * (mZ - other.GetZ()));
+    }
 }

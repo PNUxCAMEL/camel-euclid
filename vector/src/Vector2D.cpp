@@ -7,8 +7,8 @@
 namespace camelVector
 {
     Vector2D::Vector2D()
-        : mX(0)
-        , mY(0)
+        : mX(0.0f)
+        , mY(0.0f)
     {
     }
 
@@ -58,17 +58,17 @@ namespace camelVector
         return firstVector.GetY() > secondVector.GetY();
     }
 
-	bool Vector2D::bIsEqual(const Vector2D& other) const
-	{
-		if (mX == other.GetX() && mY == other.GetY())
-		{
-			return true;
-		}
-		return false;
-	}
+    bool Vector2D::bIsEqual(const Vector2D& other) const
+    {
+        if (mX == other.GetX() && mY == other.GetY())
+        {
+            return true;
+        }
+        return false;
+    }
 
-	float Vector2D::DistanceBetweenOther(const Vector2D& other) const
-	{
-		return std::sqrt((mX - other.GetX()) * (mX - other.GetX()) + (mY - other.GetY()) * (mY - other.GetY()));
-	}
+    float Vector2D::DistanceBetweenOther(const Vector2D& other) const
+    {
+        return std::sqrt((mX - other.GetX()) * (mX - other.GetX()) + (mY - other.GetY()) * (mY - other.GetY()));
+    }
 }
