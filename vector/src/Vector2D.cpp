@@ -40,27 +40,27 @@ namespace camelVector
 
     bool Vector2D::AscendingByX(Vector2D& firstVector, Vector2D& secondVector)
     {
-        return firstVector.GetX() < secondVector.GetX();
+        return firstVector.mX < secondVector.mX;
     }
 
     bool Vector2D::AscendingByY(Vector2D& firstVector, Vector2D& secondVector)
     {
-        return firstVector.GetY() < secondVector.GetY();
+        return firstVector.mY < secondVector.mY;
     }
 
     bool Vector2D::DescendingByX(Vector2D& firstVector, Vector2D& secondVector)
     {
-        return firstVector.GetX() > secondVector.GetX();
+        return firstVector.mX > secondVector.mX;
     }
 
     bool Vector2D::DescendingByY(Vector2D& firstVector, Vector2D& secondVector)
     {
-        return firstVector.GetY() > secondVector.GetY();
+        return firstVector.mY > secondVector.mY;
     }
 
     bool Vector2D::bIsEqual(const Vector2D& other) const
     {
-        if (mX == other.GetX() && mY == other.GetY())
+        if (mX == other.mX && mY == other.mY)
         {
             return true;
         }
@@ -69,6 +69,6 @@ namespace camelVector
 
     float Vector2D::DistanceBetweenOther(const Vector2D& other) const
     {
-        return std::sqrt((mX - other.GetX()) * (mX - other.GetX()) + (mY - other.GetY()) * (mY - other.GetY()));
+        return std::sqrt((mX - other.mX) * (mX - other.mX) + (mY - other.mY) * (mY - other.mY));
     }
 }

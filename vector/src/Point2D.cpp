@@ -40,55 +40,55 @@ namespace camelVector
 
     bool Point2D::AscendingByX(Point2D& firstPoint, Point2D& secondPoint)
     {
-        if (firstPoint.GetX() == secondPoint.GetX())
+        if (firstPoint.mX == secondPoint.mX)
         {
-            return firstPoint.GetZ() < firstPoint.GetZ();
+            return firstPoint.mZ < firstPoint.mZ;
         }
         else
         {
-            return firstPoint.GetX() < firstPoint.GetX();
+            return firstPoint.mX < firstPoint.mX;
         }
     }
 
     bool Point2D::AscendingByZ(Point2D& firstPoint, Point2D& secondPoint)
     {
-        if (firstPoint.GetZ() == secondPoint.GetZ())
+        if (firstPoint.mZ == secondPoint.mZ)
         {
-            return firstPoint.GetX() < firstPoint.GetX();
+            return firstPoint.mX < firstPoint.mX;
         }
         else
         {
-            return firstPoint.GetZ() < firstPoint.GetZ();
+            return firstPoint.mZ < firstPoint.mZ;
         }
     }
 
     bool Point2D::DescendingByX(Point2D& firstPoint, Point2D& secondPoint)
     {
-        if (firstPoint.GetX() == secondPoint.GetX())
+        if (firstPoint.mX == secondPoint.mX)
         {
-            return firstPoint.GetZ() > firstPoint.GetZ();
+            return firstPoint.mZ > firstPoint.mZ;
         }
         else
         {
-            return firstPoint.GetX() > firstPoint.GetX();
+            return firstPoint.mX > firstPoint.mX;
         }
     }
 
     bool Point2D::DescendingByZ(Point2D& firstPoint, Point2D& secondPoint)
     {
-        if (firstPoint.GetZ() == secondPoint.GetZ())
+        if (firstPoint.mZ == secondPoint.mZ)
         {
-            return firstPoint.GetX() > firstPoint.GetX();
+            return firstPoint.mX > firstPoint.mX;
         }
         else
         {
-            return firstPoint.GetZ() > firstPoint.GetZ();
+            return firstPoint.mZ > firstPoint.mZ;
         }
     }
 
     bool Point2D::bIsEqual(const Point2D& other) const
     {
-        if (mX == other.GetX() && mZ == other.GetZ())
+        if (mX == other.mX && mZ == other.mZ)
         {
             return true;
         }
@@ -97,6 +97,6 @@ namespace camelVector
 
     float Point2D::DistanceBetweenOther(const Point2D& other) const
     {
-        return std::sqrt((mX - other.GetX()) * (mX - other.GetX()) + (mZ - other.GetZ()) * (mZ - other.GetZ()));
+        return std::sqrt((mX - other.mX) * (mX - other.mX) + (mZ - other.mZ) * (mZ - other.mZ));
     }
 }

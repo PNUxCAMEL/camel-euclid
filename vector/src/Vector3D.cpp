@@ -59,37 +59,121 @@ namespace camelVector
 
     bool Vector3D::AscendingByX(Vector3D& firstVector, Vector3D& secondVector)
     {
-        return firstVector.GetX() < secondVector.GetX();
+        if (firstVector.mX == secondVector.mX)
+        {
+            if (firstVector.mY == secondVector.mY)
+            {
+                return firstVector.mZ < secondVector.mZ;
+            }
+            else
+            {
+                return firstVector.mY < secondVector.mY;
+            }
+        }
+        else
+        {
+            return firstVector.mX < secondVector.mX;
+        }
     }
 
     bool Vector3D::AscendingByY(Vector3D& firstVector, Vector3D& secondVector)
     {
-        return firstVector.GetY() < secondVector.GetY();
+        if (firstVector.mY == secondVector.mY)
+        {
+            if (firstVector.mZ == secondVector.mZ)
+            {
+                return firstVector.mX < secondVector.mX;
+            }
+            else
+            {
+                return firstVector.mZ < secondVector.mZ;
+            }
+        }
+        else
+        {
+            return firstVector.mY < secondVector.mY;
+        }
     }
 
     bool Vector3D::AscendingByZ(Vector3D& firstVector, Vector3D& secondVector)
     {
-        return firstVector.GetZ() < secondVector.GetZ();
+        if (firstVector.mZ == secondVector.mZ)
+        {
+            if (firstVector.mX == secondVector.mX)
+            {
+                return firstVector.mY < secondVector.mY;
+            }
+            else
+            {
+                return firstVector.mX < secondVector.mX;
+            }
+        }
+        else
+        {
+            return firstVector.mZ < secondVector.mZ;
+        }
     }
 
     bool Vector3D::DescendingByX(Vector3D& firstVector, Vector3D& secondVector)
     {
-        return firstVector.GetX() > secondVector.GetX();
+        if (firstVector.mX == secondVector.mX)
+        {
+            if (firstVector.mY == secondVector.mY)
+            {
+                return firstVector.mZ > secondVector.mZ;
+            }
+            else
+            {
+                return firstVector.mY > secondVector.mY;
+            }
+        }
+        else
+        {
+            return firstVector.mX > secondVector.mX;
+        }
     }
 
     bool Vector3D::DescendingByY(Vector3D& firstVector, Vector3D& secondVector)
     {
-        return firstVector.GetY() > secondVector.GetY();
+        if (firstVector.mY == secondVector.mY)
+        {
+            if (firstVector.mZ == secondVector.mZ)
+            {
+                return firstVector.mX > secondVector.mX;
+            }
+            else
+            {
+                return firstVector.mZ > secondVector.mZ;
+            }
+        }
+        else
+        {
+            return firstVector.mY > secondVector.mY;
+        }
     }
 
     bool Vector3D::DescendingByZ(Vector3D& firstVector, Vector3D& secondVector)
     {
-        return firstVector.GetZ() > secondVector.GetZ();
+        if (firstVector.mZ == secondVector.mZ)
+        {
+            if (firstVector.mX == secondVector.mX)
+            {
+                return firstVector.mY > secondVector.mY;
+            }
+            else
+            {
+                return firstVector.mX > secondVector.mX;
+            }
+        }
+        else
+        {
+            return firstVector.mZ > secondVector.mZ;
+        }
     }
 
     bool Vector3D::bIsEqual(const Vector3D& other) const
     {
-        if (mX == other.GetX() && mY == other.GetY() && mZ == other.GetZ())
+        if (mX == other.mX && mY == other.mY && mZ == other.mZ)
         {
             return true;
         }
@@ -98,6 +182,6 @@ namespace camelVector
 
     float Vector3D::DistanceBetweenOther(const Vector3D& other) const
     {
-        return std::sqrt((mX - other.GetX()) * (mX - other.GetX()) + (mY - other.GetY()) * (mY - other.GetY()) + (mZ - other.GetZ()) * (mZ - other.GetZ()));
+        return std::sqrt((mX - other.mX) * (mX - other.mX) + (mY - other.mY) * (mY - other.mY) + (mZ - other.mZ) * (mZ - other.mZ));
     }
 }
