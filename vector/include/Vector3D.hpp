@@ -6,6 +6,7 @@
 #define CAMEL_EUCLID_VECTOR3D_HPP
 
 #include <cmath>
+#include <iostream>
 
 namespace camelVector
 {
@@ -18,6 +19,7 @@ namespace camelVector
         float GetX() const;
         float GetY() const;
         float GetZ() const;
+        float GetByIndex(int index) const;
 
         void SetX(float x);
         void SetY(float y);

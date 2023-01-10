@@ -35,6 +35,22 @@ namespace camelVector
         return mZ;
     }
 
+    float Point3D::GetByIndex(int index) const
+    {
+        switch(index)
+        {
+        case 0:
+            return mX;
+        case 1:
+            return mY;
+        case 2:
+            return mZ;
+        default:
+            std::cout << "Index error!" << std::endl;
+            return 0;
+        }
+    }
+
     void Point3D::SetX(float x)
     {
         mX = x;

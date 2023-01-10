@@ -28,6 +28,20 @@ namespace camelVector
         return mZ;
     }
 
+    float Point2D::GetByIndex(int index) const
+    {
+        switch(index)
+        {
+        case 0:
+            return mX;
+        case 1:
+            return mZ;
+        default:
+            std::cout << "Index error!" << std::endl;
+            return 0;
+        }
+    }
+
     void Point2D::SetX(float x)
     {
         mX = x;
