@@ -52,6 +52,16 @@ namespace camelVector
         mY = y;
     }
 
+    float Vector2D::Dot(const Vector2D& other) const
+    {
+        float dotProduct = 0;
+        for (int i = 0; i < 3; i++)
+        {
+            dotProduct += GetByIndex(i) * other.GetByIndex(i);
+        }
+        return dotProduct;
+    }
+
     bool Vector2D::AscendingByX(Vector2D& firstVector, Vector2D& secondVector)
     {
         return firstVector.mX < secondVector.mX;

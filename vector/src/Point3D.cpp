@@ -73,6 +73,16 @@ namespace camelVector
         mZ = z;
     }
 
+    float Point3D::Dot(const Point3D& other) const
+    {
+        float dotProduct = 0;
+        for (int i = 0; i < 3; i++)
+        {
+            dotProduct += GetByIndex(i) * other.GetByIndex(i);
+        }
+        return dotProduct;
+    }
+
     bool Point3D::AscendingByX(Point3D& firstPoint, Point3D& secondPoint)
     {
         if (firstPoint.mX == secondPoint.mX)

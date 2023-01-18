@@ -52,6 +52,16 @@ namespace camelVector
         mZ = z;
     }
 
+    float Point2D::Dot(const Point2D& other) const
+    {
+        float dotProduct = 0;
+        for (int i = 0; i < 3; i++)
+        {
+            dotProduct += GetByIndex(i) * other.GetByIndex(i);
+        }
+        return dotProduct;
+    }
+
     bool Point2D::AscendingByX(Point2D& firstPoint, Point2D& secondPoint)
     {
         if (firstPoint.mX == secondPoint.mX)
