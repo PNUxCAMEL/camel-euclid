@@ -37,7 +37,7 @@ namespace camelVector
 
     float Point3D::GetByIndex(int index) const
     {
-        switch(index)
+        switch (index)
         {
         case 0:
             return mX;
@@ -71,16 +71,6 @@ namespace camelVector
         mX = x;
         mY = y;
         mZ = z;
-    }
-
-    float Point3D::Dot(const Point3D& other) const
-    {
-        float dotProduct = 0;
-        for (int i = 0; i < 3; i++)
-        {
-            dotProduct += GetByIndex(i) * other.GetByIndex(i);
-        }
-        return dotProduct;
     }
 
     bool Point3D::AscendingByX(Point3D& firstPoint, Point3D& secondPoint)
@@ -216,4 +206,30 @@ namespace camelVector
         return std::sqrt((mX - other.mX) * (mX - other.mX) + (mZ - other.mZ) * (mZ - other.mZ));
     }
 
+    float Point3D::Dot(const Point3D& other) const
+    {
+        float dotProduct = 0;
+        for (int i = 0; i < 3; i++)
+        {
+            dotProduct += GetByIndex(i) * other.GetByIndex(i);
+        }
+        return dotProduct;
+    }
+
+    void Point3D::Normalize(const Point3D& other, Point3D& result) const
+    {
+        float vecX = other.mX - mX;
+        float vecY = other.mY - mY;
+        float vecZ = other.mZ - mZ;
+        float magnitude = std::sqrt(vecX * vecX + vecY * vecY + vecZ * vecZ);
+
+        if (magnitude == 0.0f)
+        {
+            result = { 0.0f, 0.0f, 0.0f };
+        }
+        else
+        {
+            result = { vecX / magnitude, vecY / magnitude, vecZ / magnitude };
+        }
+    }
 }

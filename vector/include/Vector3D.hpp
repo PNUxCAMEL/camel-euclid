@@ -26,8 +26,6 @@ namespace camelVector
         void SetZ(float z);
         void SetXYZ(float x, float y, float z);
 
-        float Dot(const Vector3D& other) const;
-
         // sorting
         static bool AscendingByX(Vector3D& firstVector, Vector3D& secondVector);
         static bool AscendingByY(Vector3D& firstVector, Vector3D& secondVector);
@@ -39,6 +37,8 @@ namespace camelVector
         bool bIsEqual(const Vector3D& other) const;
 
         float DistanceBetweenOther(const Vector3D& other) const;
+        float Dot(const Vector3D& other) const;
+        void Normalize(const Vector3D& other, Vector3D& result) const;
 
     private:
         float mX;

@@ -52,16 +52,6 @@ namespace camelVector
         mY = y;
     }
 
-    float Vector2D::Dot(const Vector2D& other) const
-    {
-        float dotProduct = 0;
-        for (int i = 0; i < 3; i++)
-        {
-            dotProduct += GetByIndex(i) * other.GetByIndex(i);
-        }
-        return dotProduct;
-    }
-
     bool Vector2D::AscendingByX(Vector2D& firstVector, Vector2D& secondVector)
     {
         return firstVector.mX < secondVector.mX;
@@ -95,4 +85,31 @@ namespace camelVector
     {
         return std::sqrt((mX - other.mX) * (mX - other.mX) + (mY - other.mY) * (mY - other.mY));
     }
+
+    float Vector2D::Dot(const Vector2D& other) const
+    {
+        float dotProduct = 0;
+        for (int i = 0; i < 3; i++)
+        {
+            dotProduct += GetByIndex(i) * other.GetByIndex(i);
+        }
+        return dotProduct;
+    }
+
+    void Vector2D::Normalize(const Vector2D& other, Vector2D& result) const
+    {
+        float vecX = other.mX - mX;
+        float vecZ = other.mY - mY;
+        float magnitude = std::sqrt(vecX * vecX + vecZ * vecZ);
+
+        if (magnitude == 0.0f)
+        {
+            result = { 0.0f, 0.0f };
+        }
+        else
+        {
+            result = { vecX / magnitude, vecZ / magnitude };
+        }
+    }
+
 }

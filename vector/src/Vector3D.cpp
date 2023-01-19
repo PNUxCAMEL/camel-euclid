@@ -73,16 +73,6 @@ namespace camelVector
         mZ = z;
     }
 
-    float Vector3D::Dot(const Vector3D& other) const
-    {
-        float dotProduct = 0;
-        for (int i = 0; i < 3; i++)
-        {
-            dotProduct += GetByIndex(i) * other.GetByIndex(i);
-        }
-        return dotProduct;
-    }
-
     bool Vector3D::AscendingByX(Vector3D& firstVector, Vector3D& secondVector)
     {
         if (firstVector.mX == secondVector.mX)
@@ -209,5 +199,32 @@ namespace camelVector
     float Vector3D::DistanceBetweenOther(const Vector3D& other) const
     {
         return std::sqrt((mX - other.mX) * (mX - other.mX) + (mY - other.mY) * (mY - other.mY) + (mZ - other.mZ) * (mZ - other.mZ));
+    }
+
+    float Vector3D::Dot(const Vector3D& other) const
+    {
+        float dotProduct = 0;
+        for (int i = 0; i < 3; i++)
+        {
+            dotProduct += GetByIndex(i) * other.GetByIndex(i);
+        }
+        return dotProduct;
+    }
+
+    void Vector3D::Normalize(const Vector3D& other, Vector3D& result) const
+    {
+        float vecX = other.mX - mX;
+        float vecY = other.mY - mY;
+        float vecZ = other.mZ - mZ;
+        float magnitude = std::sqrt(vecX * vecX + vecY * vecY + vecZ * vecZ);
+
+        if (magnitude == 0.0f)
+        {
+            result = { 0.0f, 0.0f, 0.0f };
+        }
+        else
+        {
+            result = { vecX / magnitude, vecY / magnitude, vecZ / magnitude };
+        }
     }
 }
