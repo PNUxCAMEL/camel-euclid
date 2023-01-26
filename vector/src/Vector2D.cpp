@@ -72,6 +72,11 @@ namespace camelVector
         return firstVector.mY > secondVector.mY;
     }
 
+    void Vector2D::Cout() const
+    {
+        std::cout << mX << " " << mY << std::endl;
+    }
+
     bool Vector2D::bIsEqual(const Vector2D& other) const
     {
         if (mX == other.mX && mY == other.mY)
@@ -81,7 +86,7 @@ namespace camelVector
         return false;
     }
 
-    float Vector2D::DistanceBetweenOther(const Vector2D& other) const
+    float Vector2D::Norm(const Vector2D& other) const
     {
         return std::sqrt((mX - other.mX) * (mX - other.mX) + (mY - other.mY) * (mY - other.mY));
     }
@@ -95,21 +100,4 @@ namespace camelVector
         }
         return dotProduct;
     }
-
-    void Vector2D::Normalize(const Vector2D& other, Vector2D& result) const
-    {
-        float vecX = other.mX - mX;
-        float vecZ = other.mY - mY;
-        float magnitude = std::sqrt(vecX * vecX + vecZ * vecZ);
-
-        if (magnitude == 0.0f)
-        {
-            result = { 0.0f, 0.0f };
-        }
-        else
-        {
-            result = { vecX / magnitude, vecZ / magnitude };
-        }
-    }
-
 }

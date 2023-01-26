@@ -23,18 +23,17 @@ namespace camelVector
         void SetX(float x);
         void SetZ(float z);
 
-
         // sorting
         static bool AscendingByX(Point2D& firstPoint, Point2D& secondPoint);
         static bool AscendingByZ(Point2D& firstPoint, Point2D& secondPoint);
         static bool DescendingByX(Point2D& firstPoint, Point2D& secondPoint);
         static bool DescendingByZ(Point2D& firstPoint, Point2D& secondPoint);
 
+        void Cout() const;
         bool bIsEqual(const Point2D& other) const;
 
-        float DistanceBetweenOther(const Point2D& other) const;
+        float Norm(const Point2D& other) const;
         float Dot(const Point2D& other) const;
-        void Normalize(const Point2D& other, Point2D& result) const;
 
     private:
         float mX;

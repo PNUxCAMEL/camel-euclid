@@ -100,6 +100,11 @@ namespace camelVector
         }
     }
 
+    void Point2D::Cout() const
+    {
+        std::cout << mX << " " << mZ << std::endl;
+    }
+
     bool Point2D::bIsEqual(const Point2D& other) const
     {
         if (mX == other.mX && mZ == other.mZ)
@@ -109,7 +114,7 @@ namespace camelVector
         return false;
     }
 
-    float Point2D::DistanceBetweenOther(const Point2D& other) const
+    float Point2D::Norm(const Point2D& other) const
     {
         return std::sqrt((mX - other.mX) * (mX - other.mX) + (mZ - other.mZ) * (mZ - other.mZ));
     }
@@ -122,21 +127,5 @@ namespace camelVector
             dotProduct += GetByIndex(i) * other.GetByIndex(i);
         }
         return dotProduct;
-    }
-
-    void Point2D::Normalize(const Point2D& other, Point2D& result) const
-    {
-        float vecX = other.mX - mX;
-        float vecZ = other.mZ - mZ;
-        float magnitude = std::sqrt(vecX * vecX + vecZ * vecZ);
-
-        if (magnitude == 0.0f)
-        {
-            result = { 0.0f, 0.0f };
-        }
-        else
-        {
-            result = { vecX / magnitude, vecZ / magnitude };
-        }
     }
 }

@@ -29,11 +29,11 @@ namespace camelVector
         static bool DescendingByX(Vector2D& firstVector, Vector2D& secondVector);
         static bool DescendingByY(Vector2D& firstVector, Vector2D& secondVector);
 
+        void Cout() const;
         bool bIsEqual(const Vector2D& other) const;
 
-        float DistanceBetweenOther(const Vector2D& other) const;
+        float Norm(const Vector2D& other) const;
         float Dot(const Vector2D& other) const;
-        void Normalize(const Vector2D& other, Vector2D& result) const;
 
     private:
         float mX;
