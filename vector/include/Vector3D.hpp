@@ -15,6 +15,7 @@ namespace camelVector
     public:
         Vector3D();
         Vector3D(float x, float y, float z);
+        Vector3D(float data[3]);
 
         float GetX() const;
         float GetY() const;

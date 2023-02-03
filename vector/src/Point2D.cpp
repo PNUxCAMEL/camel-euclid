@@ -18,6 +18,12 @@ namespace camelVector
     {
     }
 
+    Point2D::Point2D(float data[2])
+        : mX(data[0])
+        , mZ(data[1])
+    {
+    }
+
     float Point2D::GetX() const
     {
         return mX;

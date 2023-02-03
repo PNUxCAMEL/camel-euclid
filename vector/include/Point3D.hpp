@@ -15,6 +15,7 @@ namespace camelVector
     public:
         Point3D();
         Point3D(float x, float y, float z);
+        Point3D(float data[3]);
 
         float GetX() const;
         float GetY() const;

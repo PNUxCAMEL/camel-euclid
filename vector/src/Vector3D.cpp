@@ -20,6 +20,13 @@ namespace camelVector
     {
     }
 
+    Vector3D::Vector3D(float data[3])
+        : mX(data[0])
+        , mY(data[1])
+        , mZ(data[2])
+    {
+    }
+
     float Vector3D::GetX() const
     {
         return mX;

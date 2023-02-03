@@ -15,6 +15,7 @@ namespace camelVector
     public:
         Vector2D();
         Vector2D(float x, float y);
+        Vector2D(float data[2]);
 
         float GetX() const;
         float GetY() const;
