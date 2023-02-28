@@ -2,9 +2,9 @@
 // Created by wj on 22. 4. 8..
 //
 
-#include "../include/Vector2D.hpp"
+#include "camel-vector/Vector2D.hpp"
 
-namespace camelVector
+namespace camelvector
 {
     Vector2D::Vector2D()
         : mX(0.0f)

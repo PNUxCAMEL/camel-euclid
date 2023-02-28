@@ -2,13 +2,13 @@
 // Created by wj on 22. 4. 30.
 //
 
-#ifndef POINT3D_H
-#define POINT3D_H
+#ifndef CAMEL_EUCLID_POINT3D_H
+#define CAMEL_EUCLID_POINT3D_H
 
 #include <cmath>
 #include <iostream>
 
-namespace camelVector
+namespace camelvector
 {
     class Point3D
     {
@@ -52,4 +52,4 @@ namespace camelVector
     };
 }
 
-#endif //POINT3D_H
+#endif //CAMEL_EUCLID_POINT3D_H

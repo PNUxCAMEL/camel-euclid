@@ -8,7 +8,7 @@
 #include <cmath>
 #include <iostream>
 
-namespace camelVector
+namespace camelvector
 {
     class Vector3D
     {

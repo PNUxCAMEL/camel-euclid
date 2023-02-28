@@ -2,9 +2,9 @@
 // Created by wj on 22. 4. 30.
 //
 
-#include "../include/Point2D.hpp"
+#include "camel-vector/Point2D.hpp"
 
-namespace camelVector
+namespace camelvector
 {
     Point2D::Point2D()
         : mX(0.0f)
