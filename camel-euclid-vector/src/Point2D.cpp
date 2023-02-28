@@ -2,7 +2,7 @@
 // Created by wj on 22. 4. 30.
 //
 
-#include "camel-vector/Point2D.hpp"
+#include "camel-euclid-vector/Point2D.hpp"
 
 namespace camelvector
 {

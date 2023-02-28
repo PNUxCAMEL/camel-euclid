@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.21.0)
 
-project(camel-vector)
+project(camel-euclid-vector)
 
 set(CMAKE_CXX_FLAGS "-std=c++14 ${CMAKE_CXX_FLAGS}")
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)

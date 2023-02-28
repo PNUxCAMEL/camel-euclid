@@ -3,4 +3,4 @@ PROJECT(camel-euclid)
 
 set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 
-add_subdirectory(camel-vector)
+add_subdirectory(camel-euclid-vector)
