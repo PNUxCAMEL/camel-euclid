@@ -9,7 +9,7 @@ git clone https://github.com/PNUxCAMEL/camel-euclid.git
 cd camel-euclid
 mkdir build
 cd build
-cmake ..
+cmake .. -DCMAKE_BUILD_TYPE=Release
 make
 sudo make install
 ```
